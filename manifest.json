@@ -1,15 +1,8 @@
 {
   "manifest_version": 3,
   "name": "GitHub Search Improve",
-  "description": "A extension to improve experience searching commits in GitHub",
+  "description": "A extension to improve your experience searching commits in GitHub",
   "version": "1.0.3",
-  "action": {
-    "default_popup": "view/popup.html"
-  },
-  "permissions": [
-    "storage",
-    "activeTab"
-  ],
   // "browser_action": {
   //   "default_icon": {
   //     "16": "images/icon16.png",

@@ -1,11 +1,26 @@
 let github_improve_search = {
     create_search_input: function() {
-        console.info("Creating search input")
-        var search_improve_input = '<div id="github-improve-search-element"><input type="text" class="form-control input-contrast mt-2 mb-3 input-block js-filterable-field js-your-repositories-search" placeholder="Search commits"></div>'
-        var branch_menu = document.getElementById('branch-select-menu');
-        branch_menu.insertAdjacentHTML('afterend', search_improve_input);
+        const page_id_element = document.head.querySelector("[name~=selected-link][value]");
+        var page_id = false;
 
-        github_improve_search.monitor_enter_event()
+        if (page_id_element) {
+            page_id = page_id_element.getAttribute('value');
+        }
+
+        if (page_id == false || page_id != 'repo_commits') {
+            return false;
+        }
+
+        if (!document.getElementById('github-improve-search-element')) {
+            const branch_menu = document.getElementById('branch-select-menu');
+            if (branch_menu) {
+                console.info("Creating search input")
+                var search_improve_input = '<div id="github-improve-search-element"><input type="text" class="form-control input-contrast mt-2 mb-3 input-block js-filterable-field js-your-repositories-search" placeholder="Search commits"></div>'
+                branch_menu.insertAdjacentHTML('afterend', search_improve_input);
+
+                github_improve_search.monitor_enter_event();
+            }
+        }
     },
 
     monitor_enter_event: function() {
@@ -18,9 +33,26 @@ let github_improve_search = {
                 location.href = '/search?q=repo:' + repo + '+' + search_string + '&type=commits';
             }
           });
-    }
+    },
 
+    monitor_change: function() {
+        let lastUrl = location.href; 
+        new MutationObserver(() => {
+        const url = location.href;
+        if (url !== lastUrl) {
+            lastUrl = url;
+            
+            setTimeout(() => {
+                github_improve_search.create_search_input();
+            }, 300);
+        }
+        }).observe(document, {subtree: true, childList: true});
+    },
+
+    on_change: function() {
+
+    }
 }
 
 github_improve_search.create_search_input();
-
+github_improve_search.monitor_change();
