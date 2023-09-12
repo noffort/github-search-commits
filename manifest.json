@@ -1,9 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "Hug Tools - GitHub Search Improve",
+  "name": "GitHub Search Improve",
   "description": "A extension to improve experience searching commits in GitHub",
-  "version": "1.0",
+  "version": "1.0.3",
+  "action": {
+    "default_popup": "view/popup.html"
+  },
   "permissions": [
+    "storage",
+    "activeTab"
   ],
   // "browser_action": {
   //   "default_icon": {
@@ -19,7 +24,7 @@
   // },
   "content_scripts": [
     {
-      "matches": ["https://github.com/"],
+      "matches": ["https://github.com/*"],
       "js": ["content.js"],
       "css": ["style.css"]
     }
