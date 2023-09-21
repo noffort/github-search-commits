@@ -1,20 +1,13 @@
 {
   "manifest_version": 3,
-  "name": "GitHub Search Improve",
+  "name": "Noffort - GitHub Search Improve",
   "description": "A extension to improve your experience searching commits in GitHub",
   "version": "1.0.3",
-  // "browser_action": {
-  //   "default_icon": {
-  //     "16": "images/icon16.png",
-  //     "48": "images/icon48.png",
-  //     "128": "images/icon128.png"
-  //   }
-  // },
-  // "icons": {
-  //   "16": "images/icon16.png",
-  //   "48": "images/icon48.png",
-  //   "128": "images/icon128.png"
-  // },
+  "icons": {
+    "16": "images/noffort_16.png",
+    "48": "images/noffort_48.png",
+    "128": "images/noffort_128.png"
+  },
   "content_scripts": [
     {
       "matches": ["https://github.com/*"],

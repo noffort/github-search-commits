@@ -44,13 +44,9 @@ let github_improve_search = {
             
             setTimeout(() => {
                 github_improve_search.create_search_input();
-            }, 300);
+            }, 500);
         }
         }).observe(document, {subtree: true, childList: true});
-    },
-
-    on_change: function() {
-
     }
 }
 
