@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Noffort - GitHub Search Improve",
   "description": "A extension to improve your experience searching commits in GitHub",
-  "version": "1.0.3",
+  "version": "1.0.1",
   "icons": {
     "16": "images/noffort_16.png",
     "48": "images/noffort_48.png",
