@@ -9,6 +9,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Install NodeJS
+        uses: actions/setup-node@v2
+
+      - name: Install ESLint
+        run: npm install eslint
+
       - name: Run ESLint
         uses: stefanoeb/eslint-action@1.0.2
   
